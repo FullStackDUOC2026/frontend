@@ -17,6 +17,16 @@ const Login = () => {
     e.preventDefault();
     setError('');
     setLoading(true);
+
+    // Usuario temporal hardcodeado
+    if (form.username === 'admin' && form.password === '123') {
+      localStorage.setItem('token', 'temp-token-admin');
+      localStorage.setItem('username', 'admin');
+      navigate('/empleados');
+      setLoading(false);
+      return;
+    }
+
     try {
       const data = await login(form.username, form.password);
       localStorage.setItem('token', data.token);
