@@ -51,7 +51,7 @@ const Mantenimiento = () => {
     setError('');
     try {
       const data = await listarMantenimientos();
-      setMantenimientos(data);
+      setMantenimientos(Array.isArray(data) ? data : []);
     } catch {
       setError('Error al cargar los mantenimientos.');
     } finally {

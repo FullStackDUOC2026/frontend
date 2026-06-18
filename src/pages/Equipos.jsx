@@ -41,7 +41,7 @@ const Equipos = () => {
     setError('');
     try {
       const data = await listarEquipos();
-      setEquipos(data);
+      setEquipos(Array.isArray(data) ? data : []);
     } catch {
       setError('Error al cargar los equipos.');
     } finally {

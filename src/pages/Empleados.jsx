@@ -25,7 +25,7 @@ const Empleados = () => {
     setError('');
     try {
       const data = await listarEmpleados();
-      setEmpleados(data);
+      setEmpleados(Array.isArray(data) ? data : []);
     } catch {
       setError('Error al cargar los empleados.');
     } finally {

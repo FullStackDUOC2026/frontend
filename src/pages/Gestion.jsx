@@ -22,7 +22,7 @@ const Gestion = () => {
     setError('');
     try {
       const data = await consultarEmpleadosConEquipos();
-      setAsignaciones(data);
+      setAsignaciones(Array.isArray(data) ? data : []);
     } catch {
       setError('Error al cargar las asignaciones.');
     } finally {
