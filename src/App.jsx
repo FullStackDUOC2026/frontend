@@ -4,6 +4,7 @@ import './App.css';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import Login from './pages/Login';
 import Empleados from './pages/Empleados';
@@ -23,7 +24,9 @@ const AppLayout = ({ children }) => (
 
 const ProtectedLayout = ({ children }) => (
   <ProtectedRoute>
-    <AppLayout>{children}</AppLayout>
+    <AppLayout>
+      <ErrorBoundary>{children}</ErrorBoundary>
+    </AppLayout>
   </ProtectedRoute>
 );
 
